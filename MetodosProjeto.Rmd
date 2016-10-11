@@ -92,3 +92,13 @@ R2
 ```
 
 O modelo consegue explicar aproximadamente 97,7% da variabilidade.
+
+## Problema F
+Realize uma ANOVA (Análise de Variância) ao nı́vel de 5% de significância e diga se
+estatı́sticamente é significativo dizer que pelo menos uma das variáveis independentes
+exerce influência sobre a variável dependente/resposta y.
+
+```{r}
+amostra.anova <- aov(amostra$y.ganho ~ amostra$x1.tempo + amostra$x2.dose)
+summary(amostra.anova)
+```
