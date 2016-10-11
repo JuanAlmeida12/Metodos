@@ -1,0 +1,36 @@
+---
+title: "Projeto Metodos"
+author: "Juan Almeida, Catarina Silva, Diana Marcela"
+date: "11 de outubro de 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introdução do problema
+
+  O ganho de um transistor consiste na diferença entre o emissor e o coletor. A variável Ganho (em hFE) pode ser controlada no processo de deposição de íons por meio das variáveis Tempo de emissão (em minutos) e Dose de íons (x10^{14}). [Dados](https://docs.google.com/spreadsheets/d/1OQ8Ukklrm8pV4WCu7RrhUuJ59XTYnLVoV6bfePCpl9M/edit?usp=sharing)
+
+```{r}
+amostra <- read.csv("dados.csv")
+```
+
+## Problema A
+
+Apresente gráficos de dispersão para as variáveis X1 versus Y e X2 versus Y . Há alguma suspeita de relação linear entre as variáveis independentes e dependente?
+
+```{r echo=FALSE}
+tempo <- amostra$x1.tempo
+ganho <- amostra$y.ganho
+dose <- amostra$x2.dose
+plot(tempo,ganho)
+plot(dose,ganho)
+```
+
+  Analisando o gráfico de Tempo vs Ganho, podemos notar que a pouco espalhamento e é possível traçar uma reta que abrange a maioria dos pontos, dando a suspeita que realmente exista uma relação linear entre as variáveis, por outro lado, o gráfico de Dose vs Ganho tem grande espalhamento e indica que não exista uma relação linear.
+
+## Problema B
+
+  Realize a análise correlação entre as variáveis envolvidas no estudo, ou seja, estime as correlações lineares entre as variáveis e diga se há suspeita de correlação não nula e, após teste as hipóteses de que cada uma seja nula.

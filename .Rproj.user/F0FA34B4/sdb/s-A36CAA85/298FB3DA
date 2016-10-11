@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"Projeto Metodos\"\nauthor: \"Juan Almeida, Catarina Silva, Diana Marcela\"\ndate: \"11 de outubro de 2016\"\noutput: html_document\n---\n\n```{r setup, include=FALSE}\nknitr::opts_chunk$set(echo = TRUE)\n```\n\n## Introdução do problema\n\n  O ganho de um transistor consiste na diferença entre o emissor e o coletor. A variável Ganho (em hFE) pode ser controlada no processo de deposição de íons por meio das variáveis Tempo de emissão (em minutos) e Dose de íons (x10^{14}). [Dados](https://docs.google.com/spreadsheets/d/1OQ8Ukklrm8pV4WCu7RrhUuJ59XTYnLVoV6bfePCpl9M/edit?usp=sharing)\n\n```{r}\namostra <- read.csv(\"dados.csv\")\n```\n\n## Problema A\n\nApresente gráficos de dispersão para as variáveis X1 versus Y e X2 versus Y . Há alguma suspeita de relação linear entre as variáveis independentes e dependente?\n\n```{r echo=FALSE}\ntempo <- amostra$x1.tempo\nganho <- amostra$y.ganho\ndose <- amostra$x2.dose\nplot(tempo,ganho)\nplot(dose,ganho)\n```\n\n  Analisando o gráfico de Tempo vs Ganho, podemos notar que a pouco espalhamento e é possível traçar uma reta que abrange a maioria dos pontos, dando a suspeita que realmente exista uma relação linear entre as variáveis, por outro lado, o gráfico de Dose vs Ganho tem grande espalhamento e indica que não exista uma relação linear.\n\n## Problema B\n\n  Realize a análise correlação entre as variáveis envolvidas no estudo, ou seja, estime as correlações lineares entre as variáveis e diga se há suspeita de correlação não nula e, após teste as hipóteses de que cada uma seja nula.\n",
+    "created" : 1476157340327.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1391457554",
+    "id" : "298FB3DA",
+    "lastKnownWriteTime" : 1476164785,
+    "last_content_update" : 1476164785499,
+    "path" : "~/MetodosProjeto/MetodosProjeto.Rmd",
+    "project_path" : "MetodosProjeto.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

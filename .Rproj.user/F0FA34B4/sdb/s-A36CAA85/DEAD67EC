@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(RcmdrMisc)\ncsv.data <- read.csv(\"dados.csv\")\nlibrary(Rcmdr)\n\nlibrary(rmarkdown)\nrender(\"MetodosProjeto.Rmd\",encoding ='utf-8')\n\ninstall.packages('ggplot')\n",
+    "created" : 1476155686237.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1293880321",
+    "id" : "DEAD67EC",
+    "lastKnownWriteTime" : 1476159824,
+    "last_content_update" : 1476160722340,
+    "path" : "~/MetodosProjeto/R/hello.R",
+    "project_path" : "R/hello.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
