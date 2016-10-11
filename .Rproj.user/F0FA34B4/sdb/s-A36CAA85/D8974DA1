@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "\ny = matrix(c(30,20,36,24,40))\ny\n\nX = matrix(c(1,4,10,1,3,8,1,6,11,1,4,9,1,8,12),5,3,byrow=T)\nX\n\nXt = t(X)\nXt\n\nXtX = Xt %*% X\nXtX\n\nInvXtX = solve(XtX)\nInvXtX\n\nXty = Xt %*% y\nXty\n\nBeta.est = InvXtX %*% Xty\nBeta.est\n\n# Importa dados do Excel precisa\n#library(Rcmdr)\n#?readXL\n# Lembre de digitar o caminho no seu computador que esta o arquivo Excel\nlibrary(RcmdrMisc)\ndados <- \n  readXL(\"C:/Users/Gilberto/Google Drive/00_Disciplinas_2016_1/01_M?todos Estat?sticos/00_Material did?tico dos colegas/Aula - 19 - MRLM/Exemplo usando o R/11_dados_salario_educacao_experiencia.xlsx\",\n   rownames=FALSE, header=TRUE, na=\"\", sheet=\"Plan1\", stringsAsFactors=TRUE)\ndados\n\n# Forma alternativa para visualizar a base de dados\nlibrary(Rcmdr)\nlibrary(relimp, pos=15)\nshowData(dados, placement='-20+200', font=getRcmdr('logFont'), maxwidth=80, \n  maxheight=10)\n\n\n# Ajusta o MRLM e visualiza os testes marginais t de Student com n-k-1 gl onde \n# n: total de observa??es e k: total de vari?veis independentes\n\n# Na ?ltima linha observa-se o teste F da ANOVA que testa a adequa??o do\n#modelo aos dados, ou melhor, testa\n# Ho: Beta1=0, ...,Betak=0  contra a alternativa\n# H1: pelo menos um beta ? diferente de zero, ou seja, pelo menos uma vari?vel \n#independente exerce influ?ncia linear sobre a vari?vel dependente y.\n\nmodelo1 <- lm(y.salario ~ x1.educacao + x2.experiencia, data=dados)\nsummary(modelo1)\n\nmodelo1\n\n#Explorando outros elementos do objeto modelo1 \nstr(modelo1)\n#...\n\n",
+    "contents" : "\ny = matrix(c(30,20,36,24,40))\ny\n\nX = matrix(c(1,4,10,1,3,8,1,6,11,1,4,9,1,8,12),5,3,byrow=T)\nX\n\nXt = t(X)\nXt\n\nXtX = Xt %*% X\nXtX\n\nInvXtX = solve(XtX)\nInvXtX\n\nXty = Xt %*% y\nXty\n\nBeta.est = InvXtX %*% Xty\nBeta.est\n\n# Importa dados do Excel precisa\n#library(Rcmdr)\n#?readXL\n\n\n# Forma alternativa para visualizar a base de dados\nlibrary(Rcmdr)\nlibrary(relimp, pos=15)\nshowData(dados, placement='-20+200', font=getRcmdr('logFont'), maxwidth=80, \n  maxheight=10)\n\n\n# Ajusta o MRLM e visualiza os testes marginais t de Student com n-k-1 gl onde \n# n: total de observa??es e k: total de vari?veis independentes\n\n# Na ?ltima linha observa-se o teste F da ANOVA que testa a adequa??o do\n#modelo aos dados, ou melhor, testa\n# Ho: Beta1=0, ...,Betak=0  contra a alternativa\n# H1: pelo menos um beta ? diferente de zero, ou seja, pelo menos uma vari?vel \n#independente exerce influ?ncia linear sobre a vari?vel dependente y.\n\nmodelo1 <- lm(y.salario ~ x1.educacao + x2.experiencia, data=dados)\nsummary(modelo1)\n\nmodelo1\n\n#Explorando outros elementos do objeto modelo1 \nstr(modelo1)\n#...\n\n",
     "created" : 1476155907447.000,
-    "dirty" : false,
+    "dirty" : true,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "4067260269",
+    "hash" : "803235818",
     "id" : "D8974DA1",
     "lastKnownWriteTime" : 1476155901,
-    "last_content_update" : 1476155901,
+    "last_content_update" : 1476197936809,
     "path" : "C:/Users/Juan Almeida/Downloads/11_Script_R_MRLM_Exemplo_01.R",
     "project_path" : null,
     "properties" : {

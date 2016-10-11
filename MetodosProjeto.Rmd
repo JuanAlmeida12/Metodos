@@ -7,6 +7,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(gridExtra)
 ```
 
 ## Introdução do problema
@@ -25,8 +26,8 @@ Apresente gráficos de dispersão para as variáveis X1 versus Y e X2 versus Y .
 tempo <- amostra$x1.tempo
 ganho <- amostra$y.ganho
 dose <- amostra$x2.dose
-plot(tempo,ganho)
-plot(dose,ganho)
+plot(tempo,ganho, main="Tempo vs Ganho", xlab= "Tempo", ylab="Ganho")
+plot(dose,ganho, main="Dose vs Ganho", xlab= "Dose", ylab="Ganho")
 ```
 
   Analisando o gráfico de Tempo vs Ganho, podemos notar que a pouco espalhamento e é possível traçar uma reta que abrange a maioria dos pontos, dando a suspeita que realmente exista uma relação linear entre as variáveis, por outro lado, o gráfico de Dose vs Ganho tem grande espalhamento e indica que não exista uma relação linear.
@@ -34,3 +35,60 @@ plot(dose,ganho)
 ## Problema B
 
   Realize a análise correlação entre as variáveis envolvidas no estudo, ou seja, estime as correlações lineares entre as variáveis e diga se há suspeita de correlação não nula e, após teste as hipóteses de que cada uma seja nula.
+  
+```{r}
+correlacao.a <- cor(dose, ganho)
+
+correlacao.b <- cor(tempo, ganho)
+
+```
+
+```{r echo=FALSE}
+table <- data.frame(row.names=paste("Correlação"))
+table[,1] <- correlacao.a
+table[,2] <- correlacao.b
+colnames(table) <- c("Dose vs Ganho", "Tempo vs Ganho")
+grid.table(table)
+
+```
+
+Analisando a tabela acima podemos observar que a correlação dose e ganho é proxima a zero indicando que a pouca correlação entre essas variáveis, já a correlação tempo e ganho é bastante proxima a 1 indicando que existe forte correlacão.
+
+```{r}
+cor.test(tempo,ganho)
+
+cor.test(dose,ganho)
+```
+
+## Problema C
+
+Apresente o vetor de estimativas dos coeficientes βˆ.
+
+```{r}
+modelo <- lm(ganho ~ tempo + dose)
+coefficients(modelo)
+```
+
+## Problema D
+
+Apresente o vetor de estimativas dos valores previstos ˆy = Xβˆ.
+
+```{r echo=FALSE}
+grid.table(fitted(modelo))
+```
+
+## Problema E
+Calcule a Soma de Quadrados Total (SQT otal) e a Soma de Quadrados de Regressão (SQReg) para então calcular o coeficiente de determinação R2 e diga se o modelo de regressão explica bem a variabilidade total dos dados
+
+```{r}
+SQerro <- sum((ganho-predict(modelo))^2)
+SQerro
+
+SQtotal <- sum((ganho-mean(ganho))^2)
+SQtotal
+
+R2 <- 1 - SQerro/SQtotal
+R2
+```
+
+O modelo consegue explicar aproximadamente 97,7% da variabilidade.
