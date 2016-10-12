@@ -104,3 +104,19 @@ exerce influência sobre a variável dependente/resposta y.
 amostra.anova <- aov(amostra$y.ganho ~ amostra$x1.tempo + amostra$x2.dose)
 summary(amostra.anova)
 ```
+
+
+## Problema G
+Realize testes marginais (t de Student) para testar individualmente se cada variável
+independente exerce influência sobre a variáavel dependente y
+
+```{r}
+t.test(amostra$y.ganho, amostra$x1.tempo, alternative = "two.sided")
+```
+
+```{r}
+t.test(amostra$y.ganho, amostra$x2.dose, alternative = "two.sided")
+```
+
+Para um nível de significância 5%, temos que o valor p é menor que alpha, para ambos os testes.
+Sendo assim, concluimos que a hipótese nula é rejeitada, o que nos mostra que existe relação entre o ganho dos transmissores e as duas variáveis de entrada (Tempo de emissão de íons e Dose de íons)
