@@ -15,7 +15,9 @@ library(gridExtra)
   O ganho de um transistor consiste na diferença entre o emissor e o coletor. A variável Ganho (em hFE) pode ser controlada no processo de deposição de íons por meio das variáveis Tempo de emissão (em minutos) e Dose de íons (x10^{14}). [Dados](https://docs.google.com/spreadsheets/d/1OQ8Ukklrm8pV4WCu7RrhUuJ59XTYnLVoV6bfePCpl9M/edit?usp=sharing)
 
 ```{r}
+
 amostra <- read.csv("dados.csv")
+amostra
 ```
 
 ## Problema A
