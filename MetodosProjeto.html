@@ -220,7 +220,7 @@ summary(amostra.anova)</code></pre>
 ## Residuals        11  13421    1220                     
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-<p>Ao observar a tabela ANOVA, as variáveis tempo e dose obteveram valores de Pr(&gt;F), respectivamente, iguais a 1.34e-10 e 0.00162. Logo, quanto menor o valor de Pr mais significativo se torna o teste no sentido de maior evidência estatı́stica existe para se rejeitar a hipótese nula, sendo assim as duas variáveis exercem influência sobre a variável ganho.</p>
+<p>Ao observar a tabela ANOVA, as variáveis tempo e dose obteveram valores de Pr(&gt;F), respectivamente, iguais a 1.34e-10 e 0.00162. Logo, quanto menor o valor de Pr mais significativo se torna o teste no sentido de maior evidência estatı́stica existir para se rejeitar a hipótese nula. Sendo assim, concluímos que as duas variáveis exercem influência sobre a variável ganho.</p>
 </div>
 <div id="problema-g" class="section level2">
 <h2>Problema G</h2>
@@ -249,7 +249,18 @@ summary(amostra.anova)</code></pre>
 ## sample estimates:
 ##   mean of x   mean of y 
 ## 1249.642857    4.337143</code></pre>
-<p>Para um nível de significância 5%, temos que o valor p é menor que alpha, para ambos os testes. Sendo assim, concluimos que a hipótese nula é rejeitada, o que nos mostra que existe relação entre o ganho dos transmissores e as duas variáveis de entrada (Tempo de emissão de íons e Dose de íons)</p>
+<p>Para um nível de significância 5%, temos que o valor p é menor que alpha, para ambos os testes. Sendo assim, concluímos que a hipótese nula é rejeitada, o que nos mostra que existe relação entre o ganho dos transmissores e as duas variáveis de entrada (Tempo de emissão de íons e Dose de íons)</p>
+</div>
+<div id="problema-h" class="section level2">
+<h2>Problema H</h2>
+<p>Diga qual é o ganho estimado se uma observação aleatória tem tempo 255 e e dose de 4.3.</p>
+<pre class="r"><code>X1 &lt;- 255
+X2 &lt;- 4.3
+Y &lt;- beta.0 + (beta.1*X1) + (beta.2*X2)
+Y</code></pre>
+<pre><code>## (Intercept) 
+##    1574.878</code></pre>
+<p>Logo, o ganho estimado é 1574.878.</p>
 </div>
 
 

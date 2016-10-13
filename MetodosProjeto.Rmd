@@ -71,6 +71,13 @@ modelo <- lm(ganho ~ tempo + dose)
 coefficients(modelo)
 ```
 
+```{r echo=FALSE}
+betas <- coefficients(modelo)
+beta.0 <- betas[1]
+beta.1 <- betas[2]
+beta.2 <- betas[3]
+```
+
 ## Problema D
 
 Apresente o vetor de estimativas dos valores previstos ˆy = Xβˆ.
@@ -121,3 +128,15 @@ t.test(amostra$y.ganho, amostra$x2.dose, alternative = "two.sided")
 
 Para um nível de significância 5%, temos que o valor p é menor que alpha, para ambos os testes.
 Sendo assim, concluímos que a hipótese nula é rejeitada, o que nos mostra que existe relação entre o ganho dos transmissores e as duas variáveis de entrada (Tempo de emissão de íons e Dose de íons)
+
+## Problema H
+Diga qual  é o ganho estimado se uma observação aleatória tem tempo 255 e
+e dose de 4.3.
+
+```{r }
+X1 <- 255
+X2 <- 4.3
+Y <- beta.0 + (beta.1*X1) + (beta.2*X2)
+Y
+```
+Logo, o ganho estimado é 1574.878. 
