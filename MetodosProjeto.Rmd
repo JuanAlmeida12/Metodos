@@ -93,7 +93,7 @@ R2 <- 1 - SQerro/SQtotal
 R2
 ```
 
-O modelo consegue explicar aproximadamente 97,7% da variabilidade.
+O modelo consegue explicar aproximadamente 97,9% da variabilidade.
 
 ## Problema F
 Realize uma ANOVA (Análise de Variância) ao nı́vel de 5% de significância e diga se
@@ -105,10 +105,11 @@ amostra.anova <- aov(amostra$y.ganho ~ amostra$x1.tempo + amostra$x2.dose)
 summary(amostra.anova)
 ```
 
+Ao observar a tabela ANOVA, as variáveis tempo e dose obteveram valores de Pr(>F), respectivamente, iguais a 1.34e-10 e 0.00162. Logo, quanto menor o valor de Pr mais significativo se torna o teste no sentido de maior evidência estatı́stica existir para se rejeitar a hipótese nula. Sendo assim, concluímos que as duas variáveis exercem influência sobre a variável ganho.
 
 ## Problema G
 Realize testes marginais (t de Student) para testar individualmente se cada variável
-independente exerce influência sobre a variáavel dependente y
+independente exerce influência sobre a variável dependente y
 
 ```{r}
 t.test(amostra$y.ganho, amostra$x1.tempo, alternative = "two.sided")
@@ -119,4 +120,4 @@ t.test(amostra$y.ganho, amostra$x2.dose, alternative = "two.sided")
 ```
 
 Para um nível de significância 5%, temos que o valor p é menor que alpha, para ambos os testes.
-Sendo assim, concluimos que a hipótese nula é rejeitada, o que nos mostra que existe relação entre o ganho dos transmissores e as duas variáveis de entrada (Tempo de emissão de íons e Dose de íons)
+Sendo assim, concluímos que a hipótese nula é rejeitada, o que nos mostra que existe relação entre o ganho dos transmissores e as duas variáveis de entrada (Tempo de emissão de íons e Dose de íons)
