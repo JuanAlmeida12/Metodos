@@ -207,7 +207,7 @@ SQtotal</code></pre>
 <pre class="r"><code>R2 &lt;- 1 - SQerro/SQtotal
 R2</code></pre>
 <pre><code>## [1] 0.9798296</code></pre>
-<p>O modelo consegue explicar aproximadamente 97,7% da variabilidade.</p>
+<p>O modelo consegue explicar aproximadamente 97,9% da variabilidade.</p>
 </div>
 <div id="problema-f" class="section level2">
 <h2>Problema F</h2>
@@ -220,6 +220,36 @@ summary(amostra.anova)</code></pre>
 ## Residuals        11  13421    1220                     
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+<p>Ao observar a tabela ANOVA, as variáveis tempo e dose obteveram valores de Pr(&gt;F), respectivamente, iguais a 1.34e-10 e 0.00162. Logo, quanto menor o valor de Pr mais significativo se torna o teste no sentido de maior evidência estatı́stica existe para se rejeitar a hipótese nula, sendo assim as duas variáveis exercem influência sobre a variável ganho.</p>
+</div>
+<div id="problema-g" class="section level2">
+<h2>Problema G</h2>
+<p>Realize testes marginais (t de Student) para testar individualmente se cada variável independente exerce influência sobre a variável dependente y</p>
+<pre class="r"><code>t.test(amostra$y.ganho, amostra$x1.tempo, alternative = &quot;two.sided&quot;)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  amostra$y.ganho and amostra$x1.tempo
+## t = 16.872, df = 13.212, p-value = 2.533e-10
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##   893.342 1155.229
+## sample estimates:
+## mean of x mean of y 
+## 1249.6429  225.3571</code></pre>
+<pre class="r"><code>t.test(amostra$y.ganho, amostra$x2.dose, alternative = &quot;two.sided&quot;)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  amostra$y.ganho and amostra$x2.dose
+## t = 20.596, df = 13, p-value = 2.622e-11
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  1114.680 1375.932
+## sample estimates:
+##   mean of x   mean of y 
+## 1249.642857    4.337143</code></pre>
+<p>Para um nível de significância 5%, temos que o valor p é menor que alpha, para ambos os testes. Sendo assim, concluimos que a hipótese nula é rejeitada, o que nos mostra que existe relação entre o ganho dos transmissores e as duas variáveis de entrada (Tempo de emissão de íons e Dose de íons)</p>
 </div>
 
 
